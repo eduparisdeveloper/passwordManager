@@ -194,7 +194,7 @@ public class vNewUser extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_bExitMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */

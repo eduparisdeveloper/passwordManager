@@ -26,6 +26,7 @@ public class vManager extends javax.swing.JFrame {
         private vLogin log;
         private conexion con;
         private JComboBox combo;
+        private vOption optionM;
         private static ArrayList<String> nomCategorias;
         
     /**
@@ -35,9 +36,19 @@ public class vManager extends javax.swing.JFrame {
         initComponents();
         con = new conexion();
         nomCategorias = new ArrayList<String>();
-
+        
         rellenarCampos();
     }
+
+    public vOption getOptionM() {
+        return optionM;
+    }
+
+    public void setOptionM(vOption optionM) {
+        this.optionM = optionM;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +73,11 @@ public class vManager extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         bAtras.setText("ir atras");
+        bAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bAtrasMouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,7 +92,7 @@ public class vManager extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        bNuevaCategoria.setText("Añadir categoria");
+        bNuevaCategoria.setText("Añadir Contraseña");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,8 +109,9 @@ public class vManager extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(bNuevaCategoria)
-                                .addGap(18, 18, 18)
-                                .addComponent(bAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addComponent(bAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))
                             .addComponent(cCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59))))
@@ -117,6 +134,12 @@ public class vManager extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAtrasMouseClicked
+        this.setVisible(false);
+        optionM.setVisible(true);
+        cCategoria.setSelectedIndex(0);
+    }//GEN-LAST:event_bAtrasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,9 +180,10 @@ public class vManager extends javax.swing.JFrame {
         });
     }
     
-    public void pasarLogin(vLogin login)
+    public void pasarLogin(vOption option)
     {
-       
+        this.setOptionM(option);
+        
     }
 
     private void rellenarCampos() throws SQLException

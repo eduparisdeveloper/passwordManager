@@ -54,7 +54,7 @@ public class vLogin extends javax.swing.JFrame {
         title.setText("LOGIN");
         title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        userL.setText("usuario:");
+        userL.setText("Usuario:");
 
         passwordL.setText("Contraseña:");
 

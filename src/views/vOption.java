@@ -34,6 +34,7 @@ public class vOption extends javax.swing.JFrame {
         
 
         manager = new vManager();
+        manager.pasarLogin(this);
         user = new vNewUser();
     }
     
